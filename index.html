@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jit Koley — Electrical Engineer & Automation Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f7f8fa;
+    --bg-card: #ffffff;
+    --accent: #1a56db;
+    --accent-dim: #1044b0;
+    --accent-light: #e8effe;
+    --ink: #111827;
+    --ink-mid: #374151;
+    --ink-light: #6b7280;
+    --border: #e5e7eb;
+    --border-strong: #d1d5db;
+    --white: #ffffff;
+    --mono: 'Share Tech Mono', monospace;
+    --head: 'Barlow Condensed', sans-serif;
+    --body: 'Barlow', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.25rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  }
+  .nav-brand {
+    font-family: var(--head);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 1.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--accent); transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 56px; left: 0; right: 0; z-index: 99;
+    background: rgba(255,255,255,0.98);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100svh;
+    padding: 56px 0 0;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #eef2ff 0%, #ffffff 55%, #f0f7ff 100%);
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(26,86,219,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,86,219,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    animation: gridDrift 20s linear infinite;
+  }
+  @keyframes gridDrift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 48px 48px; }
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%;
+    pointer-events: none; filter: blur(60px); opacity: 0.35;
+  }
+  .hero-orb-1 {
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(26,86,219,0.25), transparent 70%);
+    top: -120px; right: -80px;
+    animation: orbFloat1 8s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(99,179,237,0.3), transparent 70%);
+    bottom: 60px; left: -60px;
+    animation: orbFloat2 10s ease-in-out infinite;
+  }
+  .hero-orb-3 {
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(26,86,219,0.2), transparent 70%);
+    top: 50%; right: 20%;
+    animation: orbFloat3 12s ease-in-out infinite;
+  }
+  @keyframes orbFloat1 {
+    0%,100% { transform: translate(0,0) scale(1); }
+    50%      { transform: translate(-30px,40px) scale(1.08); }
+  }
+  @keyframes orbFloat2 {
+    0%,100% { transform: translate(0,0) scale(1); }
+    50%      { transform: translate(20px,-30px) scale(1.05); }
+  }
+  @keyframes orbFloat3 {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33%      { transform: translate(15px,-20px) scale(1.1); }
+    66%      { transform: translate(-10px,15px) scale(0.95); }
+  }
+  #heroCanvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
+  }
+  .hero-scanline {
+    position: absolute; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(26,86,219,0.12), transparent);
+    pointer-events: none; z-index: 2;
+    animation: scanSweep 6s ease-in-out infinite;
+  }
+  @keyframes scanSweep {
+    0%   { top: 0%; opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  .hero-diagonal {
+    position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 80px;
+    background: var(--bg-alt);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 3;
+  }
+  .hero-inner {
+    position: relative; z-index: 4;
+    padding: 3rem 1.5rem 5rem;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    opacity: 0;
+    animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 0; height: 2px; background: var(--accent);
+    animation: lineGrow 0.6s ease 0.8s forwards;
+  }
+  @keyframes lineGrow { to { width: 32px; } }
+  .hero-name {
+    font-family: var(--head);
+    font-weight: 900;
+    font-size: clamp(3rem, 12vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: slideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.45s forwards;
+  }
+  .hero-name span {
+    color: var(--accent);
+    display: inline-block;
+    animation: accentPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.1s both;
+  }
+  @keyframes accentPop {
+    from { transform: scale(0.85); opacity: 0.4; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  .hero-title {
+    font-family: var(--head);
+    font-weight: 300;
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 2rem;
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid var(--accent);
+    width: 0;
+    animation: typewriter 1.6s steps(28) 1s forwards, cursorBlink 0.7s step-end 1s 5, showTitle 0s 1s forwards;
+  }
+  @keyframes typewriter { from { width:0; opacity:1; } to { width:100%; opacity:1; } }
+  @keyframes cursorBlink { 50% { border-color: transparent; } }
+  @keyframes showTitle { to { opacity:1; } }
+  .hero-stats {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 1s forwards;
+  }
+  .stat { display: flex; flex-direction: column; position: relative; padding-bottom: 6px; }
+  .stat::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    animation: statLine 0.5s ease forwards;
+  }
+  .stat:nth-child(1)::after { animation-delay: 1.4s; }
+  .stat:nth-child(2)::after { animation-delay: 1.55s; }
+  .stat:nth-child(3)::after { animation-delay: 1.7s; }
+  .stat:nth-child(4)::after { animation-delay: 1.85s; }
+  @keyframes statLine { to { width: 100%; } }
+  .stat-num {
+    font-family: var(--head);
+    font-weight: 900;
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+  .stat:hover .stat-num { transform: scale(1.12); }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .hero-cta {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    opacity: 0;
+    animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 1.3s forwards;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 100px; left: 1.5rem;
+    z-index: 4;
+    display: flex; align-items: center; gap: 0.6rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 2.2s forwards;
+  }
+  .hero-scroll-line {
+    width: 1px; height: 48px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite 2.5s;
+  }
+  @keyframes scrollPulse {
+    0%,100% { opacity:1; height:48px; }
+    50%      { opacity:0.3; height:28px; }
+  }
+  .hero-scroll-text {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    writing-mode: vertical-rl;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { background: var(--accent-dim); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,86,219,0.3); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1.5px solid var(--border-strong);
+    color: var(--ink-mid);
+    font-family: var(--head);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 5rem 1.5rem; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, rgba(26,86,219,0.3), transparent);
+  }
+  .section-title {
+    font-family: var(--head);
+    font-weight: 900;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 3rem;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--bg-alt); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--ink-mid);
+  }
+  .about-text strong { color: var(--accent); font-weight: 500; }
+  .about-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .meta-item {
+    border-left: 2px solid var(--accent);
+    padding-left: 0.75rem;
+  }
+  .meta-key {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.2rem;
+  }
+  .meta-val {
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--bg); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .skill-card {
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .skill-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(26,86,219,0.08);
+  }
+  .skill-icon {
+    font-size: 1.5rem;
+    min-width: 2rem;
+    text-align: center;
+    margin-top: 2px;
+  }
+  .skill-name {
+    font-family: var(--head);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .skill-desc {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--bg-alt); }
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), rgba(26,86,219,0.1));
+  }
+  .exp-item {
+    position: relative;
+    padding-bottom: 3rem;
+    padding-left: 1.5rem;
+  }
+  .exp-item:last-child { padding-bottom: 0; }
+  .exp-dot {
+    position: absolute; left: -1.625rem; top: 0.3rem;
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(26,86,219,0.15);
+  }
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+  .exp-role {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .exp-company {
+    font-family: var(--head);
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .exp-bullets {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .exp-bullets li {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+  .exp-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid rgba(26,86,219,0.15);
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* ─── EDUCATION & CERTS ─── */
+  #education { background: var(--bg); }
+  .edu-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    min-width: 500px;
+  }
+  thead tr {
+    background: var(--accent-light);
+    border-bottom: 1px solid rgba(26,86,219,0.2);
+  }
+  th {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 400;
+  }
+  td {
+    padding: 0.75rem 1rem;
+    color: var(--ink-mid);
+    border-bottom: 1px solid var(--border);
+  }
+  td strong { color: var(--ink); font-weight: 500; }
+  tr:hover td { background: var(--bg-alt); }
+
+  #certifications { background: var(--bg-alt); }
+  .certs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .cert-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .cert-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(26,86,219,0.08);
+  }
+  .cert-badge {
+    min-width: 36px; height: 36px;
+    background: var(--accent-light);
+    border: 1px solid rgba(26,86,219,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .cert-name {
+    font-size: 0.9rem;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 0.15rem;
+    line-height: 1.4;
+  }
+  .cert-org {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--bg);
+    position: relative; overflow: hidden;
+  }
+  #contact::before {
+    content: 'HIRE';
+    position: absolute; right: -2rem; top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--head);
+    font-weight: 900;
+    font-size: clamp(6rem, 20vw, 14rem);
+    color: rgba(26,86,219,0.04);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    user-select: none;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact-intro {
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .contact-links {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .contact-link:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(26,86,219,0.08);
+  }
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: var(--accent-light);
+    border: 1px solid rgba(26,86,219,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-detail-key {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .contact-detail-val {
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .wa-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: #25d366;
+    color: #fff;
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 1.75rem;
+    margin-top: 1.5rem;
+    transition: background 0.2s;
+    width: fit-content;
+  }
+  .wa-btn:hover { background: #1db954; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (min-width: 640px) {
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .certs-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { grid-template-columns: 1.4fr 1fr; }
+    .contact-grid { grid-template-columns: 1.2fr 1fr; }
+  }
+  @media (min-width: 900px) {
+    .skills-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .nav-links { display: flex; }
+    .hamburger { display: none; }
+  }
+  @media (max-width: 899px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .about-meta { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.25rem; }
+    section { padding: 3.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">JIT KOLEY</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#education" class="mobile-link">Education</a>
+  <a href="#certifications" class="mobile-link">Certifications</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-scanline"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Electrical Engineer &amp; Automation Specialist</p>
+    <h1 class="hero-name">JIT<br><span>KOLEY</span></h1>
+    <p class="hero-title">PLC &middot; VFD &middot; HMI &middot; Solar PV &middot; EV Systems</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-count="13" data-suffix="+">0</span><span class="stat-label">Years Exp.</span></div>
+      <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">PLC Platforms</span></div>
+      <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-label">Machine Types</span></div>
+      <div class="stat"><span class="stat-num" data-count="9">0</span><span class="stat-label">Certifications</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-text">Scroll</span>
+  </div>
+  <div class="hero-diagonal"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">01 — Profile</p>
+    <h2 class="section-title">About</h2>
+    <div class="about-grid fade-in">
+      <div>
+        <p class="about-text">
+          Results-driven <strong>Electrical Engineer</strong> with over <strong>13 years</strong> of hands-on experience in packaging machinery service, industrial automation, EV service operations, power systems, and renewable energy.<br><br>
+          Proficient in <strong>PLC programming</strong> (Ladder, FBD, SFC) on Delta, Mitsubishi, and Siemens platforms — equally comfortable tuning VFDs, configuring HMIs, or mentoring junior field technicians. Seeking a challenging role in a progressive organisation to deliver measurable impact.
+        </p>
+      </div>
+      <div class="about-meta">
+        <div class="meta-item"><div class="meta-key">Location</div><div class="meta-val">Naihati, West Bengal</div></div>
+        <div class="meta-item"><div class="meta-key">Education</div><div class="meta-val">B.Tech — Electrical Engg.</div></div>
+        <div class="meta-item"><div class="meta-key">Languages</div><div class="meta-val">English · Hindi · Bengali</div></div>
+        <div class="meta-item"><div class="meta-key">Available</div><div class="meta-val">Open to Opportunities</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">02 — Expertise</p>
+    <h2 class="section-title">Core Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <span class="skill-icon">⚙️</span>
+        <div>
+          <div class="skill-name">Packaging Machinery</div>
+          <div class="skill-desc">Installation, commissioning, PM &amp; breakdown service for stretch wrappers, VFFS/HFFS lines, strapping &amp; carton sealers.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">🖥️</span>
+        <div>
+          <div class="skill-name">PLC Programming</div>
+          <div class="skill-desc">Ladder Logic, FBD, SFC on Delta, Mitsubishi &amp; Siemens. Control sequences, interlocks, alarm management.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">🔧</span>
+        <div>
+          <div class="skill-name">VFD &amp; HMI</div>
+          <div class="skill-desc">Parameter setup &amp; tuning for conveyor, turntable &amp; film-feed drives. Custom HMI process screens &amp; alarm lists.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">🔌</span>
+        <div>
+          <div class="skill-name">UPS &amp; Stabilizers</div>
+          <div class="skill-desc">Servo Control Voltage Stabilizers up to 2 MVA, UPS up to 500 kVA, isolation transformers &amp; smart panel meters.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">🚗</span>
+        <div>
+          <div class="skill-name">EV Systems</div>
+          <div class="skill-desc">EV powertrain &amp; BMS diagnostics, motor controller fault resolution, OTA updates &amp; technician training.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">☀️</span>
+        <div>
+          <div class="skill-name">Solar PV Design</div>
+          <div class="skill-desc">System design using PVSyst, SAM, SketchUp &amp; AutoCAD. Python-based solar power forecasting.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">📐</span>
+        <div>
+          <div class="skill-name">Electrical Design</div>
+          <div class="skill-desc">Electrical load analysis, design &amp; procurement. AMC documentation &amp; service SLA management.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">👥</span>
+        <div>
+          <div class="skill-name">Team Leadership</div>
+          <div class="skill-desc">Supervised field engineers, managed AMC contracts, spare-parts procurement &amp; on-the-job technical training.</div>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">☁️</span>
+        <div>
+          <div class="skill-name">Cloud &amp; Digital</div>
+          <div class="skill-desc">Google Cloud (BigQuery, IoT, Scientific Data), MS Office, digital marketing &amp; IT applications.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">03 — Career History</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-period">2025 — 2026</div>
+        <div class="exp-role">Senior Service Engineer</div>
+        <div class="exp-company">Vijay Enterprises — Packaging Machinery</div>
+        <ul class="exp-bullets">
+          <li>Installation, commissioning, preventive maintenance &amp; breakdown service of stretch wrappers, vacuum sealers, strapping machines, carton sealers, and VFFS/HFFS fill &amp; seal lines.</li>
+          <li>PLC programming &amp; configuration in Ladder Logic, FBD, SFC for Delta, Mitsubishi, and Siemens PLCs; control sequences, interlocks, and alarm management.</li>
+          <li>HMI touchscreen configuration: custom process screens, alarm lists, parameter pages linked to PLC data registers.</li>
+          <li>VFD parameter setup &amp; tuning for conveyor, turntable, and film-feed drives.</li>
+          <li>Supervised field engineers; managed AMC documentation, spare-parts procurement, and service SLA.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Delta PLC</span><span class="tag">Mitsubishi PLC</span><span class="tag">Siemens</span>
+          <span class="tag">VFD</span><span class="tag">HMI</span><span class="tag">VFFS/HFFS</span>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-period">2024 — 2025</div>
+        <div class="exp-role">Service Champion</div>
+        <div class="exp-company">Ola Electric</div>
+        <ul class="exp-bullets">
+          <li>Oversaw end-to-end after-sales service operations for Ola Electric vehicles at the regional service centre.</li>
+          <li>Diagnosed and resolved complex electrical &amp; software faults in EV powertrains, BMS, and motor controllers.</li>
+          <li>Led technician teams; maintained high customer satisfaction, TAT, first-time fix rate, and NPS targets.</li>
+          <li>Coordinated OEM escalations, warranty claims, and OTA software updates.</li>
+          <li>Conducted on-the-job EV safety &amp; diagnostics training for junior technicians.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">EV Powertrain</span><span class="tag">BMS</span><span class="tag">Motor Controller</span>
+          <span class="tag">OTA Updates</span><span class="tag">Team Lead</span>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-period">2022 — 2024</div>
+        <div class="exp-role">Senior Service Engineer</div>
+        <div class="exp-company">Vijay Enterprises — Packaging Machinery</div>
+        <ul class="exp-bullets">
+          <li>Serviced packaging equipment across food, pharma, and FMCG sectors.</li>
+          <li>Developed and modified Ladder Logic &amp; FBD programmes for Delta and Mitsubishi PLCs.</li>
+          <li>Configured HMI screens, set VFD parameters, and calibrated sensors for optimised throughput.</li>
+          <li>Managed AMC contracts, service indents, quotations, and preventive maintenance schedules.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Delta PLC</span><span class="tag">Mitsubishi PLC</span><span class="tag">HMI</span>
+          <span class="tag">VFD</span><span class="tag">AMC</span>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-period">2019 — 2022 &amp; 2012 — 2015</div>
+        <div class="exp-role">Service Engineer</div>
+        <div class="exp-company">Atandra Energy Pvt. Ltd. (KRYKARD)</div>
+        <ul class="exp-bullets">
+          <li>Installed and maintained Servo Control Voltage Stabilizers (up to 2 MVA), UPS systems (up to 500 kVA), Isolation Transformers, and Multifunction Smart Panel Meters.</li>
+          <li>Conducted field demos of Portable Load Manager with on-site data analysis &amp; reporting.</li>
+          <li>Delivered technical support to hospitals, spinning mills, automobile showrooms, banking, and retail sectors.</li>
+          <li>Prepared AMC quotations, service indents, and maintained client correspondence.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">UPS 500 kVA</span><span class="tag">Stabilizers 2 MVA</span>
+          <span class="tag">Transformers</span><span class="tag">Field Service</span>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-period">Training</div>
+        <div class="exp-role">Vocational Trainee</div>
+        <div class="exp-company">WBSETCL — 220/132 KV Kasba Sub-Station</div>
+        <ul class="exp-bullets">
+          <li>Vocational training in electrical operation and maintenance at a 220/132 KV high-voltage transmission substation.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">HV Transmission</span><span class="tag">Substation O&M</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <p class="section-label">04 — Academics</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-table-wrap fade-in">
+      <table>
+        <thead>
+          <tr>
+            <th>Qualification</th>
+            <th>Year</th>
+            <th>Board / University</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>B.Tech — Electrical Engineering</strong></td><td>2019</td><td>MAKAUT</td><td>7.19 DGPA</td></tr>
+          <tr><td>Diploma — Electrical Engineering</td><td>2012</td><td>W.B.S.C.T.E.</td><td>78%</td></tr>
+          <tr><td>Higher Secondary (Class XII)</td><td>2009</td><td>W.B.C.H.S.E.</td><td>53.16%</td></tr>
+          <tr><td>Madhyamik (Class X)</td><td>2007</td><td>W.B.B.S.E.</td><td>60%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <p class="section-label">05 — Credentials</p>
+    <h2 class="section-title">Certifications</h2>
+    <div class="certs-grid">
+      <div class="cert-item fade-in">
+        <div class="cert-badge">NPTEL</div>
+        <div>
+          <div class="cert-name">Design of Photovoltaic Systems</div>
+          <div class="cert-org">NPTEL</div>
+        </div>
+      </div>
+      <div class="cert-item fade-in">
+        <div class="cert-badge">NPTEL</div>
+        <div>
+          <div class="cert-name">Industrial Automation and Control</div>
+          <div class="cert-org">NPTEL</div>
+        </div>
+      </div>
+      <div class="cert-item fade-in">
+        <div class="cert-badge">MNRE</div>
+        <div>
+          <div class="cert-name">Design, Installation, O&M of Solar Utility Scale Power Projects</div>
+          <div class="cert-org">MNRE</div>
+        </div>
+      </div>
+      <div class="cert-item fade-in">
+        <div class="cert-badge">MNRE</div>
+        <div>
+          <div class="cert-name">Solar PV Off-Grid and On-Grid: Design &amp; Installation</div>
+          <div class="cert-org">MNRE</div>
+        </div>
+      </div>
+      <div class="cert-item fade-in">
+        <div class="cert-badge">MNRE</div>
+        <div>
+          <div class="cert-name">Best Practices in Installation of Solar Rooftop &amp; Utility Scale Projects</div>
+          <div class="cert-org">MNRE</div>
+        </div>
+      </div>
+      <div class="cert-item fade-in">
+        <div class="cert-badge">MeitY</div>
+        <div>
+          <div class="cert-name">Quarter Finalist — Swadeshi Microprocessor Challenge 2020</div>
+          <div class="cert-org">MeitY</div>
+        </div>
+      </div>
+      <div class="cert-item fade-in">
+        <div class="cert-badge">GCP</div>
+        <div>
+          <div class="cert-name">Google Cloud Skills: BigQuery · Cloud Resources · IoT · Scientific Data</div>
+          <div class="cert-org">Google Cloud</div>
+        </div>
+      </div>
+      <div class="cert-item fade-in">
+        <div class="cert-badge">IT</div>
+        <div>
+          <div class="cert-name">Certificate Courses in IT Applications &amp; Computer Hardware Maintenance</div>
+          <div class="cert-org">Technical Training</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">06 — Let's Talk</p>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">
+          Available for service engineering, automation, or solar PV roles. Open to opportunities, collaborations, or technical discussions across India.
+        </p>
+        <a href="https://wa.me/919804923644?text=Hi%20Jit%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect!" class="wa-btn" target="_blank" rel="noopener">
+          💬 Chat on WhatsApp
+        </a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:jitkoley81@gmail.com" class="contact-link">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div class="contact-detail-key">Email</div>
+            <div class="contact-detail-val">jitkoley81@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+919804923644" class="contact-link">
+          <div class="contact-icon">☎</div>
+          <div>
+            <div class="contact-detail-key">Phone</div>
+            <div class="contact-detail-val">+91 98049 23644</div>
+          </div>
+        </a>
+        <div class="contact-link">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-detail-key">Location</div>
+            <div class="contact-detail-val">Naihati, West Bengal — 743 165</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Jit Koley &nbsp;·&nbsp; Electrical Engineer &nbsp;·&nbsp; Industrial Automation &nbsp;·&nbsp; Solar PV
+</footer>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+
+  // ── Hero Canvas Particles ──
+  (function(){
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    function resize(){
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function Particle(){
+      this.reset();
+    }
+    Particle.prototype.reset = function(){
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.r = Math.random() * 2.5 + 0.5;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.alpha = Math.random() * 0.5 + 0.1;
+      this.pulse = Math.random() * Math.PI * 2;
+    };
+    Particle.prototype.update = function(){
+      this.x += this.vx;
+      this.y += this.vy;
+      this.pulse += 0.02;
+      this.alpha = 0.15 + 0.2 * Math.abs(Math.sin(this.pulse));
+      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    };
+
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawConnections(){
+      for (let i = 0; i < particles.length; i++){
+        for (let j = i+1; j < particles.length; j++){
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 120){
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(26,86,219,' + (0.08 * (1 - dist/120)) + ')';
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate(){
+      ctx.clearRect(0, 0, W, H);
+      drawConnections();
+      particles.forEach(p => {
+        p.update();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(26,86,219,' + p.alpha + ')';
+        ctx.fill();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  // ── Counter Animation ──
+  function animateCounter(el){
+    const target = parseInt(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200;
+    const start = performance.now();
+    function step(now){
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  // Trigger counters ~1.1s after load (when stats appear)
+  setTimeout(() => {
+    document.querySelectorAll('.stat-num[data-count]').forEach(animateCounter);
+  }, 1100);
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
